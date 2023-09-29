@@ -125,7 +125,7 @@ visitors %>%
 
 ## Question 5
 
-_How many `"O"`utside attractions are there in the `"Yorkshire and the Humber"` region that gives `"Members"` free admission, which had more than 100,000 visitors in 2022?_
+_How many `"O"`utside attractions are there in the `"Yorkshire and the Humber"` region that gives `"Members"` free admission, which had more than 100,000 visitors in 2022? 3_
 
 ```{r Q5}
 visitors %>%
@@ -140,24 +140,24 @@ visitors %>%
 
 ### Exercise f.
 
-_How many attractions had between 50,000 and 100,000 visitors in 2022?_
+_How many attractions had between 50,000 and 100,000 visitors in 2022? 50_
 
 ```{r Ex_f}
-#visitors %>% 
-#  ____(
-#    ______,
-#    ______ ) %>%
-#  count()
+visitors %>% 
+  filter(
+    n_2022>=50000,
+    n_2022<=100000) %>%
+  count()
 ```
 
 ### Exercise g.
 
-_How many regions have more than 50 tourist attraction in the data set? (Hint: You will need to tabulate the data before filtering.)_
+_How many regions have more than 50 tourist attraction in the data set? (Hint: You will need to tabulate the data before filtering.) 1 region = Scotland_
 
 ```{r Ex_g}
-#visitors %>% 
-#  _____(region) %>%
-#  filter(______)
+visitors %>% 
+  count(region) %>%
+  filter(n>50)
 ```
 
 
