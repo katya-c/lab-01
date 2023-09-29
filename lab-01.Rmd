@@ -166,7 +166,7 @@ visitors %>%
 
 ## Question 6
 
-_What are the mean and median visitor numbers in 2022 across all attractions?_
+_What are the mean and median visitor numbers in 2022 across all attractions? 351942_
 
 ```{r Q6}
 visitors %>% 
@@ -182,11 +182,11 @@ visitors %>%
 _Perform the same calculation for the 2021 admissions data._
 
 ```{r Ex_h}
-#visitors %>% 
-#  ______(
-#    __________,
-#    __________
-#  )
+visitors %>% 
+  summarise(
+    mean_2021 = mean(n_2021),
+    med_2021 = median(n_2021)
+  )
 ```
 
 All values in the output are `NA`!
@@ -195,7 +195,7 @@ All values in the output are `NA`!
 
 _What does `NA` stand for and why are you getting this as your answer to the previous question._
 
-**Write your answer here**
+**NA stands for Not Available, because there are values that aren't available for the year 2021 so is not able to compute the mean and median with values that aren't there.**
 
 
 
@@ -204,9 +204,15 @@ _What does `NA` stand for and why are you getting this as your answer to the pre
 
 _Look at the help pages for the `mean()` and `median()` commands to see what the input argument `na.rm` does. Edit your code from exercise h so that it computes the summary statistics where data is available._
 
-**Write your answer here**
+**na.rm removes data that isn't available, so that the mean can be calculated**
 
-
+```{r Ex_j}
+visitors %>% 
+  summarise(
+    mean_2021 = mean(n_2021),
+    med_2021 = median(n_2021)
+  )
+```
 
 
 ## Question 7
