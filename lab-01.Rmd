@@ -98,7 +98,7 @@ visitors %>%
 
 ## Question 4
 
-_What is the admission charge for the `"National Museum of Scotland"`?_
+_What is the admission charge for the `"National Museum of Scotland"`? Free_
 
 ```{r Q4}
 visitors %>% filter(attraction == "National Museum of Scotland")
@@ -107,20 +107,20 @@ visitors %>% filter(attraction == "National Museum of Scotland")
 
 ### Exercise d.
 
-_Which attraction had exactly 565,772 visitors in 2022?_
+_Which attraction had exactly 565,772 visitors in 2022? Knowsley Safari and Knowsley Hall_
 
 ```{r Ex_d}
-#visitors %>% filter(___ == ____)
+visitors %>% filter(n_2022 == 565772)
 ```
 
 ### Exercise e.
 
-_How many attraction had more than 1 million visitors in 2022?_
+_How many attraction had more than 1 million visitors in 2022? 22_
 
 ```{r Ex_e}
-#visitors %>% 
-#  filter(____) %>%
-#  count()
+visitors %>% 
+  filter(n_2022>1000000) %>%
+  count()
 ```
 
 ## Question 5
