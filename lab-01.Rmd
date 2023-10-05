@@ -19,7 +19,6 @@ visitors <- read_csv("data/UK-visitor-numbers.csv")
 ```
 
 
-
 # Wrangling Data
 
 ## Question 1
@@ -208,9 +207,10 @@ _Look at the help pages for the `mean()` and `median()` commands to see what the
 
 ```{r Ex_j}
 visitors %>% 
+  
   summarise(
-    mean_2021 = mean(n_2021),
-    med_2021 = median(n_2021)
+    mean_2021 = mean(n_2021, na.rm = TRUE),
+    med_2021 = median(n_2021, na.rm = TRUE)
   )
 ```
 
@@ -232,7 +232,7 @@ visitors %>%
 
 _Observe in question 6 that the mean statistics across all settings are much larger than the corresponding median statistics. Discuss in your group what this suggests about the data._
 
-**Write your answer here**
+**the data is positively skewed**
 
 
 
@@ -240,6 +240,8 @@ _Observe in question 6 that the mean statistics across all settings are much lar
 ## Question 8
 
 _What is the interquartile range (the width of the middle 50% of data set between the lower and upper quartiles) the for each of the four nations of the UK?_
+
+**England = 350362.2, Northern Ireland = 311046.0, Scotland = 127986.0, Wales = 103368.5**
 
 ```{r Q8}
 visitors_with_nations <- visitors %>%
@@ -265,8 +267,19 @@ _How many tourist attractions are there in each of the 4 nations? From this, dis
 
 
 ```{r Ex_l}
-#________ %>%
-#  ______(_______)
+visitors_with_nations <- visitors %>%
+  mutate(
+    nation = case_when(
+      region == "Northern Ireland" ~ "Northern Ireland",
+      region == "Scotland" ~ "Scotland",
+      region == "Wales" ~ "Wales",
+      TRUE ~ "England"
+    )
+  )
+visitors_with_nations %>% 
+group_by(nation) %>%
+    count(nation)
+    )
 ```
 
 
